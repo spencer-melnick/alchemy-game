@@ -1,0 +1,7 @@
+<Config>
+    <Window>
+        <Vsync>1</Vsync>
+        <Fullscreen>0</Fullscreen>
+        <Resolution x="800" y="600"/>
+    </Window>
+</Config>

@@ -8,12 +8,12 @@
 #include "game/logic/playercontroller.h"
 
 int main(int, char**) {
-	SdlApplicationData applicationData = initializeSdl(std::cout);
+	SdlApplicationData* applicationData = initializeSdl(std::cout);
 	InputDispatcher mainDispatch;
 	InputController windowController;
 	InputController playerController;
 
-	TextureFactory textureFactory(applicationData.renderer);
+	TextureFactory textureFactory(applicationData->renderer);
 	SDL_Texture* texture1 = textureFactory.loadTexture("rc/oga/Jason-Em/Old hero.png", std::cout);
 
 	bool running = true;
@@ -21,7 +21,9 @@ int main(int, char**) {
 	mainDispatch.registerController(&windowController);
 	mainDispatch.registerController(&playerController);
 	windowController.registerControl(std::make_pair("ExitKey", true), [&running](){ running = false; });
+	windowController.registerControl(std::make_pair("FullscreenKey", true), [&applicationData]{ applicationData->config->setFullscreen(!applicationData->config->getFullscreen()); });
 	mainDispatch.mapKey(InputCode::INPUT_KEY_ESCAPE, "ExitKey");
+	mainDispatch.mapKey(InputCode::INPUT_KEY_V, "FullscreenKey");
 
 	mainDispatch.mapKey(InputCode::INPUT_KEY_LEFT, "Left");
 	mainDispatch.mapKey(InputCode::INPUT_KEY_RIGHT, "Right");
@@ -49,9 +51,9 @@ int main(int, char**) {
 	while (running) {
 		mainLogic.updateLogic();
 
-		SDL_RenderClear(applicationData.renderer);
-		mainRendering.render(applicationData.renderer);
-		SDL_RenderPresent(applicationData.renderer);
+		SDL_RenderClear(applicationData->renderer);
+		mainRendering.render(applicationData->renderer);
+		SDL_RenderPresent(applicationData->renderer);
 
 		while (SDL_PollEvent(&event))
 			mainDispatch.dispatchInput(event);
