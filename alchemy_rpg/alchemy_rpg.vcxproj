@@ -17,6 +17,7 @@
     <ClInclude Include="src\engine\core\core.h" />
     <ClInclude Include="src\engine\core\message.h" />
     <ClInclude Include="src\engine\engine.h" />
+    <ClInclude Include="src\engine\graphics\animatedsprite.h" />
     <ClInclude Include="src\engine\graphics\graphics.h" />
     <ClInclude Include="src\engine\graphics\rendercomponent.h" />
     <ClInclude Include="src\engine\graphics\rendersystem.h" />
@@ -35,6 +36,7 @@
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp" />
     <ClCompile Include="src\engine\core\actor.cpp" />
     <ClCompile Include="src\engine\core\component.cpp" />
+    <ClCompile Include="src\engine\graphics\animatedsprite.cpp" />
     <ClCompile Include="src\engine\graphics\rendercomponent.cpp" />
     <ClCompile Include="src\engine\graphics\rendersystem.cpp" />
     <ClCompile Include="src\engine\internals\inputsystems.cpp" />

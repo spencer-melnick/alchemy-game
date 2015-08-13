@@ -7,16 +7,16 @@
 
 class Sprite : public RenderComponent { //not a finished class, just to test the rendering entity-component system
 public:
-	Sprite(SDL_Texture* texture) :
+	Sprite(Texture* texture) :
 		texture_(texture)
 	{};
 
-	SDL_Texture* getTexture() {
+	Texture* getTexture() {
 		return texture_;
 	}
 
 protected:
-	SDL_Texture* texture_;
+	Texture* texture_;
 };
 
 #endif

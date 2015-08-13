@@ -14,7 +14,7 @@ int main(int, char**) {
 	InputController playerController;
 
 	TextureFactory textureFactory(applicationData->renderer);
-	SDL_Texture* texture1 = textureFactory.loadTexture("rc/oga/Jason-Em/Old hero.png", std::cout);
+	Texture* texture1 = textureFactory.loadStaticTexture("rc/oga/Jason-Em/Old hero.png", std::cout);
 
 	bool running = true;
 
@@ -38,7 +38,8 @@ int main(int, char**) {
 
 	Actor guy;
 	std::shared_ptr<PlayerController> controller(new PlayerController());
-	guy.addComponent(mainRendering.registerComponent(SharedRenderComponent(new Sprite(texture1))));
+	if (texture1 != nullptr)
+		guy.addComponent(mainRendering.registerComponent(SharedRenderComponent(new Sprite(texture1))));
 	guy.addComponent(mainLogic.registerComponent(controller));
 	guy.propagateMessage(Message::SetPosition(Vector2D(128.0, 64.0)));
 

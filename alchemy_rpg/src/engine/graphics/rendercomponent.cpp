@@ -45,6 +45,12 @@ Transform RenderComponent::getTransform() {
 }
 
 
+std::pair<int, int> RenderComponent::getSize() {
+	int width, height;
+	SDL_QueryTexture(getTexture()->getTextureHandle(), nullptr, nullptr, &width, &height); \
+	return std::make_pair(width, height);
+}
+
 void RenderComponent::handleMessage(const Message& message) {
 	if (message.type == Message::SetParent::getStaticType()) {
 		auto tmessage = static_cast<const Message::SetParent&>(message);

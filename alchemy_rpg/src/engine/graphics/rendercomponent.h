@@ -10,6 +10,7 @@
 #include "../core/component.h"
 #include "../core/actor.h"
 #include "../internals/vector2d.h"
+#include "../internals/texturefactory.h"
 #include "../core/message.h"
 
 class RenderSystem;
@@ -29,9 +30,11 @@ public:
 	Transform getTransform();
 
 
-	virtual SDL_Texture* getTexture() {
+	virtual Texture* getTexture() = 0;
+	virtual SDL_Rect* getSourceRect() {
 		return nullptr;
 	}
+	virtual std::pair<int, int> getSize();
 	virtual void handleMessage(const Message& message) override final;
 
 protected:

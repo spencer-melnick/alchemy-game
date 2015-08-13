@@ -114,6 +114,9 @@
     <ClInclude Include="ext\tinyxml2\tinyxml2.h">
       <Filter>ext\tinyxml2</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\graphics\animatedsprite.h">
+      <Filter>headers\engine\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -151,6 +154,9 @@
     </ClCompile>
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp">
       <Filter>ext\tinyxml2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\graphics\animatedsprite.cpp">
+      <Filter>sources\engine\graphics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

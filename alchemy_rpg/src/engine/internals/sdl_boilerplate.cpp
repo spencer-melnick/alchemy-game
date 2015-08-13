@@ -1,5 +1,7 @@
 #include "sdl_boilerplate.h"
 
+//TODO: force textures to reload so vsync can be changed during application run
+
 SdlApplicationData* initializeSdl(std::ostream& log) {
 	SdlApplicationData* applicationData = new SdlApplicationData();
 

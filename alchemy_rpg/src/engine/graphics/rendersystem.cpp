@@ -33,11 +33,11 @@ void RenderSystem::render(SDL_Renderer* renderer, const SharedRenderComponent& c
 	rect_.y = static_cast<int>(topState.transform.offset.y);
 
 	if (component->getTexture() != nullptr) {
-		SDL_QueryTexture(component->getTexture(), nullptr, nullptr, &(rect_.w), &(rect_.h));
-		rect_.w = static_cast<int>(topState.transform.scale.x * static_cast<double>(rect_.w));
-		rect_.h = static_cast<int>(topState.transform.scale.y * static_cast<double>(rect_.h));
+		std::pair<int, int> size = component->getSize();
+		rect_.w = static_cast<int>(topState.transform.scale.x * static_cast<double>(size.first));
+		rect_.h = static_cast<int>(topState.transform.scale.y * static_cast<double>(size.second));
 
-		SDL_RenderCopy(renderer, component->getTexture(), 0, &rect_);
+		SDL_RenderCopy(renderer, component->getTexture()->getTextureHandle(), component->getSourceRect(), &rect_);
 	}
 
 	for (auto i : component->children_)
