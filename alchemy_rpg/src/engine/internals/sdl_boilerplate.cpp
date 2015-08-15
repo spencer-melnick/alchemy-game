@@ -110,8 +110,8 @@ SdlApplicationData::WindowConfig::WindowConfig(SdlApplicationData* data, tinyxml
 	element->QueryBoolText(&fullscreen_);
 
 	element = verifiedXmlElement(config_, window, "Resolution");
-	element->QueryUnsignedAttribute("x", &mode_.w);
-	element->QueryUnsignedAttribute("y", &mode_.h);
+	element->QueryIntAttribute("x", &mode_.w);
+	element->QueryIntAttribute("y", &mode_.h);
 }
 
 SdlApplicationData::WindowConfig::~WindowConfig() {

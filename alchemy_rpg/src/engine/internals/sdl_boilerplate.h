@@ -18,8 +18,8 @@
 
 struct SdlApplicationData {
 	struct DisplayMode {
-		unsigned int w;
-		unsigned int h;
+		int w;
+		int h;
 	};
 
 	class WindowConfig {

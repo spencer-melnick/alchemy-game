@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "alchemy_rpg", "alchemy_rpg.vcxproj", "{8EB05F7B-65FD-43D6-B3E9-5C758CC28CFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		debug|x86 = debug|x86
+		release|x86 = release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EB05F7B-65FD-43D6-B3E9-5C758CC28CFA}.debug|x86.ActiveCfg = debug|Win32
+		{8EB05F7B-65FD-43D6-B3E9-5C758CC28CFA}.debug|x86.Build.0 = debug|Win32
+		{8EB05F7B-65FD-43D6-B3E9-5C758CC28CFA}.release|x86.ActiveCfg = release|Win32
+		{8EB05F7B-65FD-43D6-B3E9-5C758CC28CFA}.release|x86.Build.0 = release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

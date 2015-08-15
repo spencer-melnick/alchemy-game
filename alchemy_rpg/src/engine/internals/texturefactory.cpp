@@ -1,27 +1,27 @@
 #include "textureFactory.h"
 
-AnimatedTexture::AnimatedTexture(SDL_Texture* texture, std::string filename, SpriteConfig config, 
-	const std::map<std::string, Animation>& animations) : Texture(texture, filename), animations_(animations)
+TextureSheet::TextureSheet(SDL_Texture* texture, std::string filename, SheetConfig config)
+	: Texture(texture, filename)
 {
 	unsigned char framesX = static_cast<unsigned char>(std::floor((config.imageWidth - (config.paddingX * 2))
-		/ (config.frameWidth + config.spaceX)));
+		/ (config.tileWidth + config.spaceX)));
 	unsigned char framesY = static_cast<unsigned char>(std::floor((config.imageHeight - (config.paddingY * 2))
-		/ (config.frameHeight + config.spaceY)));
+		/ (config.tileHeight + config.spaceY)));
 
 	for (unsigned char i = 0; i < framesX; i++) {
 		frames_[i] = std::vector<SDL_Rect>();
 		for (unsigned char j = 0; j < framesY; j++) {
 			frames_[i][j] = SDL_Rect();
-			frames_[i][j].x = config.paddingX + ((config.frameWidth + config.spaceX) * static_cast<unsigned int>(i));
-			frames_[i][j].y = config.paddingY + ((config.frameHeight + config.spaceY) * static_cast<unsigned int>(j));
-			frames_[i][j].w = config.frameWidth;
-			frames_[i][j].h = config.frameHeight;
+			frames_[i][j].x = config.paddingX + ((config.tileWidth + config.spaceX) * static_cast<unsigned int>(i));
+			frames_[i][j].y = config.paddingY + ((config.tileHeight + config.spaceY) * static_cast<unsigned int>(j));
+			frames_[i][j].w = config.tileWidth;
+			frames_[i][j].h = config.tileHeight;
 		}
 	}
 }
 
 Texture* TextureFactory::loadTexture(std::string filename, std::ostream& log,
-	AnimatedTexture::SpriteConfig* config, std::map<std::string, Animation>* animations)
+	TextureSheet::SheetConfig* config)
 {
 	auto i = textures_.begin();
 
@@ -39,8 +39,8 @@ Texture* TextureFactory::loadTexture(std::string filename, std::ostream& log,
 
 	if (config == nullptr)
 		textures_.push_front(Texture(texture, filename));
-	else if (animations == nullptr)
-		textures_.push_front(AnimatedTexture(texture, filename, *config, *animations));
+	else
+		textures_.push_front(TextureSheet(texture, filename, *config));
 
 	return &(textures_.front());
 }

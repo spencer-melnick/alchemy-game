@@ -21,7 +21,7 @@
 
 class AnimatedSprite : public Sprite {
 public:
-	AnimatedSprite(AnimatedTexture& texture);
+	AnimatedSprite(TextureSheet& texture);
 
 protected:
 	std::pair<unsigned char, unsigned char> currentframe_;

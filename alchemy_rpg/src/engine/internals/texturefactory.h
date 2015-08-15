@@ -7,7 +7,6 @@
 #include <stdexcept>
 #include <vector>
 #include <map>
-
 #include <SDL.h>
 #include <SDL_image.h>
 
@@ -33,17 +32,13 @@ public:
 		return false;
 	}
 
-	virtual const std::map<std::string, Animation>& getAnimations() {
-		return emptyanimation_;
-	}
-
 protected:
 	Texture(SDL_Texture* texture, std::string filename) : texture_(texture), filename_(filename)
 		{};
 
 	enum class TextureType {
 		TEXTURE_STATIC,
-		TEXTURE_ANIMATED
+		TEXTURE_SHEET
 	};
 
 	SDL_Texture* texture_;
@@ -52,39 +47,30 @@ protected:
 	virtual const TextureType getInternalType() {
 		return TextureType::TEXTURE_STATIC;
 	}
-
-private:
-	std::map<std::string, Animation> emptyanimation_;
 };
 
-class AnimatedTexture : public Texture {
+class TextureSheet : public Texture {
 	friend class TextureFactory;
 public:
-	struct SpriteConfig {
+	struct SheetConfig {
 		unsigned int imageWidth, imageHeight,
 			paddingX, paddingY,
 			spaceX, spaceY,
-			frameWidth, frameHeight;
-		std::map<std::string, Animation> animations;
+			tileWidth, tileHeight;
 	};
-
-	virtual const std::map<std::string, Animation>& getAnimations() override {
-		return animations_;
-	}
 
 	virtual const bool getIsAnimated() override {
 		return true;
 	}
 
 protected:
-	AnimatedTexture(SDL_Texture* texture, std::string filename, SpriteConfig config,
-		const std::map<std::string, Animation>& animations);
+	TextureSheet(SDL_Texture* texture, std::string filename, SheetConfig config);
 
 	std::map<std::string, Animation> animations_;
 	std::vector<std::vector<SDL_Rect> > frames_;
 
 	virtual const TextureType getInternalType() {
-		return TextureType::TEXTURE_ANIMATED;
+		return TextureType::TEXTURE_SHEET;
 	}
 };
 
@@ -98,17 +84,17 @@ public:
 		return loadTexture(filename, log);
 	}
 
-	AnimatedTexture* loadAnimatedTexture(std::string filename, AnimatedTexture::SpriteConfig& config,
+	TextureSheet* loadAnimatedTexture(std::string filename, TextureSheet::SheetConfig& config,
 		std::ostream& log, std::map<std::string, Animation>& animations)
 	{
-		return static_cast<AnimatedTexture*>(loadTexture(filename, log, &config));
+		return static_cast<TextureSheet*>(loadTexture(filename, log, &config));
 	}
 	void reloadTextures(std::ostream& log);
 	void unloadTextures();
 
 protected:
 	Texture* loadTexture(std::string filename, std::ostream& log,
-		AnimatedTexture::SpriteConfig* config = nullptr, std::map<std::string, Animation>* animations = nullptr);
+		TextureSheet::SheetConfig* config = nullptr);
 	SDL_Texture* loadTextureData(std::string filename, std::ostream& log);
 
 private:
