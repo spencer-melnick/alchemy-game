@@ -1,162 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="sources">
-      <UniqueIdentifier>{dbd4c7b7-fa80-4044-af29-c796d34352de}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\engine">
-      <UniqueIdentifier>{94b9c0f1-df0f-41fa-829a-72bc6cee14d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\engine\core">
-      <UniqueIdentifier>{93f07936-872b-47b8-8e29-293cea3c27e0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\engine\graphics">
-      <UniqueIdentifier>{04cb8143-d74d-4f22-af48-bf1fe5d4b0d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\engine\internals">
-      <UniqueIdentifier>{979ee8b6-cc41-4515-bd2b-26270aeac2f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\engine\logic">
-      <UniqueIdentifier>{9d8003b3-f1a8-40c7-8856-165364507069}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\game">
-      <UniqueIdentifier>{e0be7249-1cc6-4d56-968e-0525ec821a30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\game\logic">
-      <UniqueIdentifier>{dc228a5e-7b9d-46c2-b260-a9c0df701c72}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ext">
       <UniqueIdentifier>{147770fe-187a-4217-87e2-54c53efc557d}</UniqueIdentifier>
     </Filter>
     <Filter Include="ext\tinyxml2">
       <UniqueIdentifier>{6ddb2927-b41b-4fc1-aec7-56ba99fae344}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers">
-      <UniqueIdentifier>{05637da4-9343-47c0-a629-7277cea414b6}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{54b9a7d2-ddcd-4c68-9363-9a8cf9455892}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\engine">
-      <UniqueIdentifier>{001bf8f2-a163-4f1e-9e39-09250969d80a}</UniqueIdentifier>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{985cb908-ee16-4294-877b-b857bb959406}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\engine\core">
-      <UniqueIdentifier>{58933311-a7e2-4674-a9c0-e34a446cf068}</UniqueIdentifier>
+    <Filter Include="src\engine\display">
+      <UniqueIdentifier>{03a841fc-dfaf-435e-b60d-51268e7a448c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\engine\graphics">
-      <UniqueIdentifier>{4ba84c53-82b6-4e07-a44c-4ece91143a33}</UniqueIdentifier>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{9b21b052-c28f-4274-b54d-9b698c49917f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\engine\logic">
-      <UniqueIdentifier>{47f479fb-0763-44ae-a15d-73cf4d177f92}</UniqueIdentifier>
+    <Filter Include="src\engine\core">
+      <UniqueIdentifier>{7249cc1a-5c09-425f-86fd-2e6b0cf8546b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\engine\internals">
-      <UniqueIdentifier>{dd3ea31c-b647-424e-92d8-aa3081dcca70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="headers\game">
-      <UniqueIdentifier>{f5453e4c-61e2-4126-a3c0-9ac577beb57d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="headers\game\logic">
-      <UniqueIdentifier>{3dc974dc-56a3-497b-bd71-a31ffd0fb033}</UniqueIdentifier>
+    <Filter Include="src\engine\file">
+      <UniqueIdentifier>{5ed60230-a8a2-4b12-9b3e-67e978705b53}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\engine\engine.h">
-      <Filter>headers\engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\core\actor.h">
-      <Filter>headers\engine\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\core\component.h">
-      <Filter>headers\engine\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\graphics\rendercomponent.h">
-      <Filter>headers\engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\graphics\rendersystem.h">
-      <Filter>headers\engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\graphics\sprite.h">
-      <Filter>headers\engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\core\message.h">
-      <Filter>headers\engine\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\logic\logiccomponent.h">
-      <Filter>headers\engine\logic</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\internals\inputsystems.h">
-      <Filter>headers\engine\internals</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\internals\sdl_boilerplate.h">
-      <Filter>headers\engine\internals</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\internals\texturefactory.h">
-      <Filter>headers\engine\internals</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\internals\vector2d.h">
-      <Filter>headers\engine\internals</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\internals\internals.h">
-      <Filter>headers\engine\internals</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\logic\logicsystem.h">
-      <Filter>headers\engine\logic</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\logic\playercontroller.h">
-      <Filter>headers\game\logic</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\core\core.h">
-      <Filter>headers\engine\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\graphics\graphics.h">
-      <Filter>headers\engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\logic\logic.h">
-      <Filter>headers\engine\logic</Filter>
-    </ClInclude>
     <ClInclude Include="ext\tinyxml2\tinyxml2.h">
       <Filter>ext\tinyxml2</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\graphics\animatedsprite.h">
-      <Filter>headers\engine\graphics</Filter>
+    <ClInclude Include="src\engine\core\linkedResource.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\error.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\type.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\systemsList.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\core.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\display\display.h">
+      <Filter>src\engine\display</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\display\renderer.h">
+      <Filter>src\engine\display</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\display\window.h">
+      <Filter>src\engine\display</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\engine.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\file\resource.h">
+      <Filter>src\engine\file</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\file\texture.h">
+      <Filter>src\engine\file</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\file\file.h">
+      <Filter>src\engine\file</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\file\manager.h">
+      <Filter>src\engine\file</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\core\actor.cpp">
-      <Filter>sources\engine\core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\graphics\rendercomponent.cpp">
-      <Filter>sources\engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\graphics\rendersystem.cpp">
-      <Filter>sources\engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\internals\inputsystems.cpp">
-      <Filter>sources\engine\internals</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\internals\texturefactory.cpp">
-      <Filter>sources\engine\internals</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\internals\vector2d.cpp">
-      <Filter>sources\engine\internals</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\logic\logicsystem.cpp">
-      <Filter>sources\engine\logic</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\logic\playercontroller.cpp">
-      <Filter>sources\game\logic</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\internals\sdl_boilerplate.cpp">
-      <Filter>sources\engine\internals</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\core\component.cpp">
-      <Filter>sources\engine\core</Filter>
-    </ClCompile>
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp">
       <Filter>ext\tinyxml2</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine\graphics\animatedsprite.cpp">
-      <Filter>sources\engine\graphics</Filter>
+    <ClCompile Include="src\game\main.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\core\linkedResource.cpp">
+      <Filter>src\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\core\error.cpp">
+      <Filter>src\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\core\type.cpp">
+      <Filter>src\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\display\renderer.cpp">
+      <Filter>src\engine\display</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\display\window.cpp">
+      <Filter>src\engine\display</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\file\resource.cpp">
+      <Filter>src\engine\file</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\file\texture.cpp">
+      <Filter>src\engine\file</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\file\manager.cpp">
+      <Filter>src\engine\file</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

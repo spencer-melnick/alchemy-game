@@ -12,40 +12,31 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\tinyxml2\tinyxml2.h" />
-    <ClInclude Include="src\engine\core\actor.h" />
-    <ClInclude Include="src\engine\core\component.h" />
     <ClInclude Include="src\engine\core\core.h" />
-    <ClInclude Include="src\engine\core\message.h" />
+    <ClInclude Include="src\engine\core\error.h" />
+    <ClInclude Include="src\engine\core\linkedResource.h" />
+    <ClInclude Include="src\engine\core\systemsList.h" />
+    <ClInclude Include="src\engine\core\type.h" />
+    <ClInclude Include="src\engine\display\display.h" />
+    <ClInclude Include="src\engine\display\renderer.h" />
+    <ClInclude Include="src\engine\display\window.h" />
     <ClInclude Include="src\engine\engine.h" />
-    <ClInclude Include="src\engine\graphics\animatedsprite.h" />
-    <ClInclude Include="src\engine\graphics\graphics.h" />
-    <ClInclude Include="src\engine\graphics\rendercomponent.h" />
-    <ClInclude Include="src\engine\graphics\rendersystem.h" />
-    <ClInclude Include="src\engine\graphics\sprite.h" />
-    <ClInclude Include="src\engine\internals\inputsystems.h" />
-    <ClInclude Include="src\engine\internals\internals.h" />
-    <ClInclude Include="src\engine\internals\sdl_boilerplate.h" />
-    <ClInclude Include="src\engine\internals\texturefactory.h" />
-    <ClInclude Include="src\engine\internals\vector2d.h" />
-    <ClInclude Include="src\engine\logic\logic.h" />
-    <ClInclude Include="src\engine\logic\logiccomponent.h" />
-    <ClInclude Include="src\engine\logic\logicsystem.h" />
-    <ClInclude Include="src\game\logic\playercontroller.h" />
+    <ClInclude Include="src\engine\file\file.h" />
+    <ClInclude Include="src\engine\file\manager.h" />
+    <ClInclude Include="src\engine\file\resource.h" />
+    <ClInclude Include="src\engine\file\texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp" />
-    <ClCompile Include="src\engine\core\actor.cpp" />
-    <ClCompile Include="src\engine\core\component.cpp" />
-    <ClCompile Include="src\engine\graphics\animatedsprite.cpp" />
-    <ClCompile Include="src\engine\graphics\rendercomponent.cpp" />
-    <ClCompile Include="src\engine\graphics\rendersystem.cpp" />
-    <ClCompile Include="src\engine\internals\inputsystems.cpp" />
-    <ClCompile Include="src\engine\internals\sdl_boilerplate.cpp" />
-    <ClCompile Include="src\engine\internals\texturefactory.cpp" />
-    <ClCompile Include="src\engine\internals\vector2d.cpp" />
-    <ClCompile Include="src\engine\logic\logicsystem.cpp" />
-    <ClCompile Include="src\game\logic\playercontroller.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\engine\core\error.cpp" />
+    <ClCompile Include="src\engine\core\linkedResource.cpp" />
+    <ClCompile Include="src\engine\core\type.cpp" />
+    <ClCompile Include="src\engine\display\renderer.cpp" />
+    <ClCompile Include="src\engine\display\window.cpp" />
+    <ClCompile Include="src\engine\file\manager.cpp" />
+    <ClCompile Include="src\engine\file\resource.cpp" />
+    <ClCompile Include="src\engine\file\texture.cpp" />
+    <ClCompile Include="src\game\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8EB05F7B-65FD-43D6-B3E9-5C758CC28CFA}</ProjectGuid>
