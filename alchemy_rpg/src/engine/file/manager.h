@@ -10,7 +10,7 @@ namespace Engine
 	public:
 		ResourceManager(Renderer& renderer);
 
-		Resource& getResource(std::string filename);
+		Resource* getResource(std::string filename);
 		void deleteResources();
 
 	private:

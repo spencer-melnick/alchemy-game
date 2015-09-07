@@ -13,8 +13,10 @@ Texture* TextureFactory::loadFromFile(std::string filename) {
 
 	fileStream_.open(filename, std::ios::binary);
 
-	if (!fileStream_.is_open())
-		throw Engine::Error(SystemName::SYSTEM_FILE, false, filename + " was unable to be opened");
+	if (!fileStream_.is_open()) {
+		Log(filename + " was unable to be opened", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
+		return nullptr;
+	}
 
 	Texture* texture = static_cast<Texture*>(resources_.emplace(id, std::make_unique<Texture>(Texture(filename, renderer_))).first->second.get());
 	renderer_.linkResource(texture);
@@ -23,8 +25,10 @@ Texture* TextureFactory::loadFromFile(std::string filename) {
 	size_t fileSize = static_cast<size_t>(fileStream_.tellg());
 	fileStream_.seekg(0, std::ios::beg);
 
+	auto dataBuffer = std::make_shared<std::vector<char> >(fileSize);
+
 	texture->dataSize_ = fileSize;
-	texture->rawData_.swap(std::make_shared<std::vector<char> >(fileSize));
+	texture->rawData_.swap(dataBuffer);
 
 	fileStream_.read(texture->rawData_->data(), fileSize);
 	texture->loadTexture();
