@@ -25,6 +25,9 @@
     <Filter Include="src\engine\file">
       <UniqueIdentifier>{5ed60230-a8a2-4b12-9b3e-67e978705b53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\engine\entity">
+      <UniqueIdentifier>{f30109eb-7c62-4cf3-ac98-3bb356c99b34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\tinyxml2\tinyxml2.h">
@@ -69,6 +72,24 @@
     <ClInclude Include="src\engine\file\manager.h">
       <Filter>src\engine\file</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\core\log.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\entity\message.h">
+      <Filter>src\engine\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\entity\component.h">
+      <Filter>src\engine\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\entity\entity.h">
+      <Filter>src\engine\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\entity\entity_includes.h">
+      <Filter>src\engine\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\entity\node.h">
+      <Filter>src\engine\entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp">
@@ -100,6 +121,18 @@
     </ClCompile>
     <ClCompile Include="src\engine\file\manager.cpp">
       <Filter>src\engine\file</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\core\log.cpp">
+      <Filter>src\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\entity\component.cpp">
+      <Filter>src\engine\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\entity\message.cpp">
+      <Filter>src\engine\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\entity\entity.cpp">
+      <Filter>src\engine\entity</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

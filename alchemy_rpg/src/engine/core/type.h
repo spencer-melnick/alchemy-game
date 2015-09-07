@@ -38,4 +38,12 @@ namespace Engine
 		static Id currentId_;
 	};
 
+	template <typename base>
+	Id TypeCounter<base>::lastId_ = 0;
+
+	template <typename base, typename derived>
+	bool Type<base, derived>::initialized_ = false;
+
+	template <typename base, typename derived>
+	Id Type<base, derived>::currentId_ = 0;
 }

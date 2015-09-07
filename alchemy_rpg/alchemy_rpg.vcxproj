@@ -15,12 +15,18 @@
     <ClInclude Include="src\engine\core\core.h" />
     <ClInclude Include="src\engine\core\error.h" />
     <ClInclude Include="src\engine\core\linkedResource.h" />
+    <ClInclude Include="src\engine\core\log.h" />
     <ClInclude Include="src\engine\core\systemsList.h" />
     <ClInclude Include="src\engine\core\type.h" />
     <ClInclude Include="src\engine\display\display.h" />
     <ClInclude Include="src\engine\display\renderer.h" />
     <ClInclude Include="src\engine\display\window.h" />
     <ClInclude Include="src\engine\engine.h" />
+    <ClInclude Include="src\engine\entity\component.h" />
+    <ClInclude Include="src\engine\entity\entity.h" />
+    <ClInclude Include="src\engine\entity\entity_includes.h" />
+    <ClInclude Include="src\engine\entity\message.h" />
+    <ClInclude Include="src\engine\entity\node.h" />
     <ClInclude Include="src\engine\file\file.h" />
     <ClInclude Include="src\engine\file\manager.h" />
     <ClInclude Include="src\engine\file\resource.h" />
@@ -30,9 +36,18 @@
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp" />
     <ClCompile Include="src\engine\core\error.cpp" />
     <ClCompile Include="src\engine\core\linkedResource.cpp" />
-    <ClCompile Include="src\engine\core\type.cpp" />
+    <ClCompile Include="src\engine\core\log.cpp" />
+    <ClCompile Include="src\engine\core\type.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+      </ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="src\engine\display\renderer.cpp" />
     <ClCompile Include="src\engine\display\window.cpp" />
+    <ClCompile Include="src\engine\entity\component.cpp" />
+    <ClCompile Include="src\engine\entity\entity.cpp" />
+    <ClCompile Include="src\engine\entity\message.cpp" />
     <ClCompile Include="src\engine\file\manager.cpp" />
     <ClCompile Include="src\engine\file\resource.cpp" />
     <ClCompile Include="src\engine\file\texture.cpp" />
@@ -77,11 +92,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>ext\tinyxml2;ext\SDL2\include;ext\SDL2-image\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -101,7 +117,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
