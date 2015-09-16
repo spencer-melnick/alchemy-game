@@ -31,6 +31,11 @@
     <ClInclude Include="src\engine\file\manager.h" />
     <ClInclude Include="src\engine\file\resource.h" />
     <ClInclude Include="src\engine\file\texture.h" />
+    <ClInclude Include="src\engine\graphics\graphicsComponent.h" />
+    <ClInclude Include="src\engine\graphics\graphicsSystem.h" />
+    <ClInclude Include="src\engine\graphics\sprite.h" />
+    <ClInclude Include="src\engine\math\math.h" />
+    <ClInclude Include="src\engine\math\vector2d.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp" />
@@ -51,6 +56,10 @@
     <ClCompile Include="src\engine\file\manager.cpp" />
     <ClCompile Include="src\engine\file\resource.cpp" />
     <ClCompile Include="src\engine\file\texture.cpp" />
+    <ClCompile Include="src\engine\graphics\graphicsComponent.cpp" />
+    <ClCompile Include="src\engine\graphics\graphicsSystem.cpp" />
+    <ClCompile Include="src\engine\graphics\sprite.cpp" />
+    <ClCompile Include="src\engine\math\vector2d.cpp" />
     <ClCompile Include="src\game\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -7,6 +7,7 @@
 #include "message.h"
 #include "component.h"
 #include "node.h"
+#include "../math/vector2d.h"
 
 namespace Engine
 {

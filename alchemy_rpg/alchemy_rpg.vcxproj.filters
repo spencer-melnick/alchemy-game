@@ -28,6 +28,12 @@
     <Filter Include="src\engine\entity">
       <UniqueIdentifier>{f30109eb-7c62-4cf3-ac98-3bb356c99b34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\engine\graphics">
+      <UniqueIdentifier>{4eb07d14-7d04-47b5-858b-e8e522c180fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\math">
+      <UniqueIdentifier>{8c010c29-cfec-4081-a509-fd7963acf277}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\tinyxml2\tinyxml2.h">
@@ -90,6 +96,21 @@
     <ClInclude Include="src\engine\entity\node.h">
       <Filter>src\engine\entity</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\graphics\graphicsComponent.h">
+      <Filter>src\engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\math\vector2d.h">
+      <Filter>src\engine\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\math\math.h">
+      <Filter>src\engine\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\graphics\sprite.h">
+      <Filter>src\engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\graphics\graphicsSystem.h">
+      <Filter>src\engine\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp">
@@ -133,6 +154,18 @@
     </ClCompile>
     <ClCompile Include="src\engine\entity\entity.cpp">
       <Filter>src\engine\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\math\vector2d.cpp">
+      <Filter>src\engine\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\graphics\sprite.cpp">
+      <Filter>src\engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\graphics\graphicsComponent.cpp">
+      <Filter>src\engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\graphics\graphicsSystem.cpp">
+      <Filter>src\engine\graphics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
