@@ -20,8 +20,6 @@ namespace Engine {
 
 	protected:
 		SDL_Window* sdlWindow_;
-
-		virtual void onDestroy() override;
 	};
 
 }

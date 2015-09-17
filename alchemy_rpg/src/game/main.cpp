@@ -21,7 +21,11 @@ int main(int argc, char *argv[]) {
 		window.create("Hello world!", 0, 0, 640, 480, 0);
 		renderer.create(SDL_RENDERER_ACCELERATED);
 
-		Engine::ResourceManager resources(renderer);
+		Engine::ResourceManager resources;
+		Engine::TextureFactory textureFactory(renderer);
+
+		resources.extensionAssociations.push_back(std::make_pair(IMAGE_EXTENSIONS, &textureFactory));
+		resources.loadResource("rc/oga/Jason-Em/Old hero.png", 2);
 
 		Engine::Texture* texture = dynamic_cast<Engine::Texture*>(resources.getResource("rc/oga/Jason-Em/Old hero.png"));
 

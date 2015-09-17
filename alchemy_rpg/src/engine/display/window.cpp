@@ -24,10 +24,3 @@ void Window::initializeSdlVideo() {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 		throw Engine::Error(SystemName::SYSTEM_DISPLAY, true, "Failed to initialize SDL_Video: " + SdlStringError());
 }
-
-void Window::onDestroy() {
-	if (sdlWindow_ != nullptr) {
-		SDL_DestroyWindow(sdlWindow_);
-		sdlWindow_ = nullptr;
-	}
-}

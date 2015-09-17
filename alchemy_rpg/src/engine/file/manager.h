@@ -8,19 +8,20 @@ namespace Engine
 
 	class ResourceManager {
 	public:
-		ResourceManager(Renderer& renderer);
+		ResourceManager();
 
+		Resource* loadResource(std::string filename, Byte priority);
 		Resource* getResource(std::string filename);
-		void deleteResources();
+		void deleteResources(Byte priority);
+
+		std::vector < std::pair<std::string, ResourceFactory*> > extensionAssociations;
+
+	protected:
+		Resource* getResource(Hash id);
 
 	private:
 		ResourceMap resources_;
-		Renderer& renderer_;
 		std::hash<std::string> hash_;
-
-		TextureFactory textureFactory_;
-
-		static const std::string imageExtensions_;
 
 	};
 

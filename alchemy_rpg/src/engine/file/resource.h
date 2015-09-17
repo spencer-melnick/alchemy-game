@@ -9,6 +9,7 @@ namespace Engine
 {
 
 	using Hash = size_t;
+	using Byte = unsigned char;
 
 	enum class ResourceType
 	{
@@ -19,18 +20,25 @@ namespace Engine
 	public:
 		std::hash<std::string> hashFunction;
 
-		Resource(std::string filename);
+		Resource(std::string filename, Byte priority);
 		virtual ~Resource() = default;
 
 		Hash getId();
 		std::string getFilename();
+		Byte getPriority();
 		virtual ResourceType getType() = 0;
 
 	private:
 		Hash id_;
 		std::string filename_;
+		Byte priority_;
 	};
 
-	using ResourceMap = std::map<Hash, std::unique_ptr<Resource> >;
+	class ResourceFactory {
+	public:
+		virtual Resource* loadResource(std::string filename, Byte priority) = 0;
+	};
+
+	using ResourceMap = std::map<Hash, Resource*>;
 
 }

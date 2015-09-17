@@ -2,32 +2,60 @@
 
 using namespace Engine;
 
-ResourceManager::ResourceManager(Renderer& renderer)
-	: renderer_(renderer), textureFactory_(renderer, resources_, hash_) {}
+ResourceManager::ResourceManager()
+	{}
 
-Resource* ResourceManager::getResource(std::string filename) {
+Resource* ResourceManager::loadResource(std::string filename, Byte priority) {
 	Hash id = hash_(filename);
 
-	auto i = resources_.find(id);
-	if (i != resources_.end())
-		return (i->second).get();
+	Resource* prior = getResource(id);
+	if (prior != nullptr) {
+		Log("Attempted to load " + filename + ", but it already exists in memory", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
+		return prior;
+	}
 
 	std::string fileExtension = filename.substr(filename.find_last_of('.'));
 
-	if (imageExtensions_.find(fileExtension + " ") != std::string::npos) {
-		Texture* texture = textureFactory_.loadFromFile(filename);
-		if (texture == nullptr)
-			Log(filename + " was unable to be accessed by resource manager", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
+	for (auto i : extensionAssociations) {
+		if (i.first.find(fileExtension + " ") != std::string::npos) {
+			Resource* resource = i.second->loadResource(filename, priority);
+			if (resource == nullptr) {
+				Log(filename + " was not created successfully", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
+				return nullptr;
+			}
 
-		return texture;
+			resources_[id] = resource;
+			return resources_[id];
+		}
 	}
 
 	Log(fileExtension + " is not a valid extension for " + filename, LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
 	return nullptr;
 }
 
-void ResourceManager::deleteResources() {
-	resources_.clear();
+Resource* ResourceManager::getResource(std::string filename) {
+	Hash id = hash_(filename);
+
+	return getResource(id);
 }
 
-const std::string ResourceManager::imageExtensions_ = ".png .jpg .jpeg";
+Resource* ResourceManager::getResource(Hash id) {
+	auto i = resources_.find(id);
+	if (i != resources_.end())
+		return i->second;
+
+	return nullptr;
+}
+
+void ResourceManager::deleteResources(Byte priority) {
+	std::vector<ResourceMap::iterator> removed;
+	
+	for (auto i = resources_.begin(); i != resources_.end(); i++)
+		if (i->second->getPriority() >= priority)
+			removed.push_back(i);
+
+	for (auto i : removed) {
+		delete i->second;
+		resources_.erase(i);
+	}
+}

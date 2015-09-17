@@ -7,47 +7,40 @@
 #include <SDL_image.h>
 
 #include "resource.h"
-#include "../core/linkedResource.h"
 #include "../display/renderer.h"
+
+
+#define IMAGE_EXTENSIONS ".png .jpg .jpeg"
 
 namespace Engine
 {
 
 	class Texture;
 
-	class TextureFactory {
+	class TextureFactory: public ResourceFactory {
 	public:
-		TextureFactory(Renderer& renderer, ResourceMap& resources, std::hash<std::string>& hash);
+		TextureFactory(Renderer& renderer);
 
-		Texture* loadFromFile(std::string filename);
+		virtual Resource* loadResource(std::string filename, Byte priority) override;
 
 	private:
 		Renderer& renderer_;
-		ResourceMap& resources_;
-		std::ifstream fileStream_;
-		std::hash<std::string>& hash_;
 	};
 
-	class Texture : public Resource, protected LinkedResource {
+	class Texture : public Resource {
 		friend class TextureFactory;
 	public:
-		Texture(std::string filename, const Renderer& renderer);
 		virtual ~Texture() override;
 
 		SDL_Texture* getTexture();
-		size_t getSize();
 		virtual ResourceType getType() override;
 
 	protected:
-		std::shared_ptr<std::vector<char> > rawData_;
-		size_t dataSize_;
 		SDL_Texture* texture_;
-		const Renderer& renderer_;
+		std::string name_;
 
-		void loadTexture();
+		Texture(std::string filename, Byte priority, SDL_Texture* data);
+
 		void deleteTexture();
-
-		virtual void onDestroy() override;
-		virtual void onRecreate() override;
 	};
 }

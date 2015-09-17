@@ -4,29 +4,19 @@ using namespace Engine;
 
 Renderer::Renderer(Window& window) :
 	window_(window), sdlRenderer_(nullptr) {
-	window.linkResource(this);
 }
 
 void Renderer::create(Uint32 flags) {
 	lastFlags_ = flags;
 
 	if (sdlRenderer_ != nullptr)
-		recreate();
+		destroyRenderer();
 	
 	createRenderer(flags);
 }
 
 SDL_Renderer* Renderer::getSdlRenderer() const {
 	return sdlRenderer_;
-}
-
-void Renderer::onDestroy() {
-	destroyRenderer();
-}
-
-void Renderer::onRecreate() {
-	destroyRenderer();
-	createRenderer(lastFlags_);
 }
 
 void Renderer::destroyRenderer() {

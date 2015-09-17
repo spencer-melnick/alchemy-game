@@ -6,16 +6,13 @@
 
 namespace Engine {
 
-	class Renderer : public LinkedResource {
+	class Renderer {
 	public:
 		Renderer(Window& window);
 
 		void create(Uint32 flags);
 		SDL_Renderer* getSdlRenderer() const;
 
-	protected:
-		virtual void onDestroy() override;
-		virtual void onRecreate() override;
 
 	private:
 		Window& window_;

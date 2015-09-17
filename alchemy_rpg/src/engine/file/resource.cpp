@@ -2,8 +2,8 @@
 
 using namespace Engine;
 
-Resource::Resource(std::string filename)
-	: filename_(filename) {
+Resource::Resource(std::string filename, Byte priority)
+	: filename_(filename), priority_(priority) {
 	id_ = hashFunction(filename);
 }
 
@@ -13,4 +13,8 @@ Hash Resource::getId() {
 
 std::string Resource::getFilename() {
 	return filename_;
+}
+
+Byte Resource::getPriority() {
+	return priority_;
 }
