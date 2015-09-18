@@ -7,46 +7,42 @@ namespace Engine
 {
 
 	template <typename T>
-	class Node: public std::enable_shared_from_this<Node<T> > {
+	class Node {
 	public:
-		void addChild(std::shared_ptr<T> child) {
-			removeChild(std::weak_ptr<T>(child));
+		void addChild(T* child) {
+			removeChild(child);
 			children_.emplace(child);
 
-			child->setOwner(std::weak_ptr<T>(shared_from_this()));
+			child->setOwner(this);
 		}
 
-		void removeChild(std::weak_ptr<T> child) {
-			auto ptr = child.lock();
-
-			auto i = children_.find(ptr);
+		void removeChild(T* child) {
+			auto i = children_.find(T);
 			if (i != children_.end())
-				if (i->owner_.get() == this) {
-					i->owner_ = std::weak_ptr<T>();
+				if (i->owner_ == this) {
+					i->owner_ = nullptr;
 					children_.erase(i);
 				}
 		}
 
-		std::vector<std::weak_ptr<T> > getChildren() {
-			std::vector<std::weak_ptr<T> > tmp(children_.size());
-			for (auto i : children_)
-				tmp.emplace(i);
-
+		std::vector<T*> getChildren() {
+			std::vector<T*> tmp(children_.size());
+			tmp = children_;
 			return tmp;
 		}
 
-		std::weak_ptr<T> getOwner() {
-			return std::weak_ptr<T>(owner_);
+		T* getOwner() {
+			return owner_;
 		}
 
 	protected:
-		std::vector<std::shared_ptr<T> > children_;
-		std::weak_ptr<T> owner_;
+		std::vector<T*> children_;
+		T* owner_;
 
-		void setParent(std::weak_ptr<T> owner) {
-			if (!owner.expired())
-				owner.lock()->remove(std::weak_ptr<T>(shared_from_this()));
-			owner_(owner);
+		void setParent(T* owner) {
+			if (owner != nullptr)
+				owner_->remove(this);
+			owner_ = owner;
 		}
 	};
 

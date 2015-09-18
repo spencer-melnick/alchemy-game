@@ -4,19 +4,19 @@
 
 namespace Engine
 {
+	struct Transform {
+		Vector2D position_;
+		Vector2D size_;
+		double depth_;
+	};
 
-	class Sprite : public GraphicsComponent {
+	class Sprite {
 	public:
-		Sprite(Texture* texture, Entity& owner);
-
-		virtual Texture* getTexture() override;
-		virtual SDL_Rect* getSourceRect() override;
-		virtual void update() override;
-
-		virtual void setTexture(Texture* texture);
 
 	protected:
-		Texture* texture_;
+		SDL_Texture* texture;
+		SDL_Rect source;
+		Vector2D size;
 	};
 
 }
