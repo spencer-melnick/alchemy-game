@@ -12,7 +12,7 @@
 namespace Engine
 {
 
-	class Entity: public Node<Entity> {
+	class Entity {
 	public:
 		void addComponent(SharedComponent component);
 		bool removeComponent(Id id);

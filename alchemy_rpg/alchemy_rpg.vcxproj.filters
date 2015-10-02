@@ -108,7 +108,10 @@
     <ClInclude Include="src\engine\graphics\sprite.h">
       <Filter>src\engine\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\graphics\graphicsSystem.h">
+    <ClInclude Include="src\engine\graphics\spriteRenderer.h">
+      <Filter>src\engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\graphics\graphics.h">
       <Filter>src\engine\graphics</Filter>
     </ClInclude>
   </ItemGroup>
@@ -164,7 +167,7 @@
     <ClCompile Include="src\engine\graphics\graphicsComponent.cpp">
       <Filter>src\engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine\graphics\graphicsSystem.cpp">
+    <ClCompile Include="src\engine\graphics\spriteRenderer.cpp">
       <Filter>src\engine\graphics</Filter>
     </ClCompile>
   </ItemGroup>

@@ -45,14 +45,5 @@ namespace Engine
 		double magnitude();
 		Vector2D& normalize();
 	};
-
-	struct Transform {
-		Vector2D offset;
-		Vector2D scale;
-
-		Transform() :
-			offset(), scale(1.0, 1.0)
-		{};
-	};
 }
 
