@@ -31,6 +31,15 @@ void Sprite::setTransform(Transform transform) {
 	depthCallback_();
 }
 
+void Sprite::setDepth(double depth) {
+	transform_.depth = depth;
+	depthCallback_();
+}
+
+void Sprite::setPosition(Vector2D position) {
+	transform_.position = position;
+}
+
 Vector2D Sprite::getSize() {
 	return size_;
 }

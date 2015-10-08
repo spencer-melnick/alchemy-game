@@ -35,6 +35,7 @@
     <ClInclude Include="src\engine\graphics\graphicsComponent.h" />
     <ClInclude Include="src\engine\graphics\sprite.h" />
     <ClInclude Include="src\engine\graphics\spriteRenderer.h" />
+    <ClInclude Include="src\engine\graphics\staticSprite.h" />
     <ClInclude Include="src\engine\math\math.h" />
     <ClInclude Include="src\engine\math\vector2d.h" />
   </ItemGroup>
@@ -60,6 +61,7 @@
     <ClCompile Include="src\engine\graphics\graphicsComponent.cpp" />
     <ClCompile Include="src\engine\graphics\sprite.cpp" />
     <ClCompile Include="src\engine\graphics\spriteRenderer.cpp" />
+    <ClCompile Include="src\engine\graphics\staticSprite.cpp" />
     <ClCompile Include="src\engine\math\vector2d.cpp" />
     <ClCompile Include="src\game\main.cpp" />
   </ItemGroup>

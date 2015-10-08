@@ -2,7 +2,9 @@
 
 #include <functional>
 
-#include "graphicsComponent.h"
+#include <SDL.h>
+
+#include "../math/vector2d.h"
 
 namespace Engine
 {
@@ -22,6 +24,8 @@ namespace Engine
 		void setSource(SDL_Rect source);
 		void setSize(Vector2D size);
 		void setTransform(Transform transform);
+		void setDepth(double depth);
+		void setPosition(Vector2D position);
 
 		SDL_Texture* getTexture();
 		SDL_Rect getSource();

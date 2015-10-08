@@ -114,6 +114,9 @@
     <ClInclude Include="src\engine\graphics\graphics.h">
       <Filter>src\engine\graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\graphics\staticSprite.h">
+      <Filter>src\engine\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\tinyxml2\tinyxml2.cpp">
@@ -168,6 +171,9 @@
       <Filter>src\engine\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\graphics\spriteRenderer.cpp">
+      <Filter>src\engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\graphics\staticSprite.cpp">
       <Filter>src\engine\graphics</Filter>
     </ClCompile>
   </ItemGroup>
