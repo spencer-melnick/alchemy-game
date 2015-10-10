@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 
 	try {
 
-		window.create("Hello world!", 0, 0, 640, 480, 0);
+		window.create("Hello world!", 20, 15, 640, 480, 0);
 		renderer.create(SDL_RENDERER_ACCELERATED);
 
 		Engine::ResourceManager resources;
@@ -32,6 +32,14 @@ int main(int argc, char *argv[]) {
 
 		Engine::Entity testSprite;
 		testSprite.addComponent(std::make_shared<Engine::StaticSpriteComponent>(testSprite, spriteRenderer, texture));
+
+		SDL_Rect rect;
+		rect.x = 0;
+		rect.y = 0;
+		rect.w = 128;
+		rect.h = 128;
+
+		testSprite.dispatchMessage(Engine::SetSpriteSourceMessage(rect));
 
 		if (texture != nullptr) {
 			SDL_RenderClear(renderer.getSdlRenderer());

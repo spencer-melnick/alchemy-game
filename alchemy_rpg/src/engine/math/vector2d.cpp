@@ -71,7 +71,7 @@ Vector2D Vector2D::operator/(const Vector2D& vector) {
 
 Vector2D Vector2D::operator/(const double& factor) {
 	Vector2D v = *this;
-	return v *= factor;
+	return v /= factor;
 }
 
 bool Vector2D::operator==(const Vector2D& vector) {

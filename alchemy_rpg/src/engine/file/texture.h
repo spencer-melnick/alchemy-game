@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include"../math/vector2d.h"
 #include "resource.h"
 #include "../display/renderer.h"
 
@@ -33,13 +34,15 @@ namespace Engine
 		virtual ~Texture() override;
 
 		SDL_Texture* getTexture();
+		Vector2D getSize();
 		virtual ResourceType getType() override;
 
 	protected:
 		SDL_Texture* texture_;
 		std::string name_;
+		Vector2D size_;
 
-		Texture(std::string filename, Byte priority, SDL_Texture* data);
+		Texture(std::string filename, Byte priority, SDL_Texture* data, Vector2D size);
 
 		void deleteTexture();
 	};

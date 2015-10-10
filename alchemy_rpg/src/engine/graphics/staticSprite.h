@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SDL.h>
+
 #include "graphicsComponent.h"
 
 namespace Engine {
@@ -9,6 +11,13 @@ namespace Engine {
 		SetTextureMessage(Texture* t);
 
 		Texture* texture;
+	};
+
+	class SetSpriteSourceMessage : public Message<SetSpriteSourceMessage> {
+	public:
+		SetSpriteSourceMessage(SDL_Rect s);
+
+		SDL_Rect source;
 	};
 
 	class StaticSpriteComponent : public GraphicsComponent {

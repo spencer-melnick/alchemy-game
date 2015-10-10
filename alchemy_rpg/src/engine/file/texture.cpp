@@ -15,15 +15,16 @@ Resource* TextureFactory::loadResource(std::string filename, Byte priority) {
 	}
 
 	SDL_Texture* raw = SDL_CreateTextureFromSurface(renderer_.getSdlRenderer(), temp);
-	Resource* texture = new Texture(filename, priority, raw);
+	Vector2D dim(temp->w, temp->h);
+	Resource* texture = new Texture(filename, priority, raw, dim);
 
 	SDL_FreeSurface(temp);
 
 	return texture;
 }
 
-Texture::Texture(std::string filename, Byte priority, SDL_Texture* texture)
-	: Resource(filename, priority), texture_(texture) {}
+Texture::Texture(std::string filename, Byte priority, SDL_Texture* texture, Vector2D size)
+	: Resource(filename, priority), texture_(texture), size_(size) {}
 
 Texture::~Texture() {
 	deleteTexture();
@@ -31,6 +32,10 @@ Texture::~Texture() {
 
 SDL_Texture* Texture::getTexture() {
 	return texture_;
+}
+
+Vector2D Texture::getSize() {
+	return size_;
 }
 
 ResourceType Texture::getType() {
