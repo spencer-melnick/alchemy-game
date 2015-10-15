@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 		resources.extensionAssociations.push_back(std::make_pair(IMAGE_EXTENSIONS, &textureFactory));
 		resources.loadResource("rc/oga/Jason-Em/Old hero.png", 2);
 
-		Engine::Texture* texture = dynamic_cast<Engine::Texture*>(resources.getResource("rc/oga/Jason-Em/Old hero.png"));
+		Engine::Texture* texture = resources.getResource<Engine::Texture>("rc/oga/Jason-Em/Old hero.png");
 
 		Engine::Entity testSprite;
 		testSprite.addComponent(std::make_shared<Engine::StaticSpriteComponent>(testSprite, spriteRenderer.newSprite(), texture));

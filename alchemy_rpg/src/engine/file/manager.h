@@ -12,7 +12,12 @@ namespace Engine
 
 		Resource* loadResource(std::string filename, Byte priority);
 		Resource* getResource(std::string filename);
+		
 		void deleteResources(Byte priority);
+
+		template <typename T>
+		T* getResource(std::string filename);
+
 
 		std::vector < std::pair<std::string, ResourceFactory*> > extensionAssociations;
 

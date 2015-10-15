@@ -36,7 +36,31 @@ Resource* ResourceManager::loadResource(std::string filename, Byte priority) {
 Resource* ResourceManager::getResource(std::string filename) {
 	Hash id = hash_(filename);
 
-	return getResource(id);
+	Resource* resource = getResource(id);
+
+	if (resource == nullptr)
+		Log(filename + " was not found in the list of loaded resources", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
+
+	return resource;
+}
+
+template <typename T>
+T* ResourceManager::getResource(std::string filename) {
+	Resource* resource = getResource(filename);
+
+	if (resource == nullptr)
+		return nullptr;
+
+	T* typed;
+	try {
+		typed = dynamic_cast<T*>(resource);
+	}
+	catch (std::bad_cast& error) {
+		Log(filename + " was unable to be cast to requested type + \"" + error.what() + "\"", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
+		return nullptr;
+	}
+
+	return typed;
 }
 
 Resource* ResourceManager::getResource(Hash id) {
