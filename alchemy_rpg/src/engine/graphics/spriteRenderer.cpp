@@ -12,37 +12,47 @@ void SpriteRenderer::sort() {
 	//simple STL-powered insertion sort taken from cppreference.com
 
 	for (auto i = sprites_.begin(); i != sprites_.end(); i ++) {
-		std::rotate(std::upper_bound(sprites_.begin(), i, *i), i, i + 1);
+		std::rotate(std::upper_bound(sprites_.begin(), i, *i, 
+			[](const WeakSprite a, const WeakSprite b) {
+				if (a.expired() || b.expired())
+					throw Engine::Error(SystemName::SYSTEM_GRAPHICS, true, "SpriteRenderer contained an invalid sprite");
+				return *(a.lock()) < *(b.lock()); }),
+		i, i + 1);
 	}
 }
 
 void SpriteRenderer::render() {
 	for (auto i : sprites_) {
 		SDL_Rect dest;
-		dest.w = static_cast<int>(i.size_.x);
-		dest.h = static_cast<int>(i.size_.y);
-		dest.x = static_cast<int>(i.transform_.position.x) - static_cast<int>(i.size_.x / 2);
-		dest.y = static_cast<int>(i.transform_.position.y) - static_cast<int>(i.size_.y / 2);
+		auto sprite = *(i.lock());
 
-		SDL_RenderCopy(renderer_.getSdlRenderer(), i.texture_, &i.source_, &dest);
+		dest.w = static_cast<int>(sprite.size_.x);
+		dest.h = static_cast<int>(sprite.size_.y);
+		dest.x = static_cast<int>(sprite.transform_.position.x) - static_cast<int>(sprite.size_.x / 2);
+		dest.y = static_cast<int>(sprite.transform_.position.y) - static_cast<int>(sprite.size_.y / 2);
+
+		SDL_RenderCopy(renderer_.getSdlRenderer(), sprite.texture_, &sprite.source_, &dest);
 	}
 }
 
-void SpriteRenderer::removeSprite(Sprite* sprite) {
-	auto x = sprites_.end();
+SpriteRenderer::SpriteWrapper::SpriteWrapper(std::vector<WeakSprite> &s, std::function<void()> depthCallback) :
+	owner(s), data(depthCallback) {};
 
-	for (auto i = sprites_.begin(); i != sprites_.end(); i++) {
-		if (&(*i) == sprite) {
-			x = i;
-			break;
-		}
-	}
-
-	if (x != sprites_.end())
-		sprites_.erase(x);
+SpriteRenderer::SpriteWrapper::~SpriteWrapper() {
+	owner.erase(itr);
 }
 
-Sprite* SpriteRenderer::newSprite() {
-	sprites_.push_back(Sprite(depthCallback_));
-	return &(sprites_.back());
+SharedSprite SpriteRenderer::newSprite() {
+	auto intern = std::make_shared<SpriteRenderer::SpriteWrapper>(sprites_, depthCallback_);
+	SharedSprite alias = SharedSprite(intern, &(intern->data));
+
+	sprites_.push_back(WeakSprite(alias));
+	auto itr = sprites_.end();
+	itr--;
+	intern->itr = itr;
+	return alias;
+}
+
+size_t SpriteRenderer::getNumSprites() {
+	return sprites_.size();
 }

@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 		Engine::Texture* texture = dynamic_cast<Engine::Texture*>(resources.getResource("rc/oga/Jason-Em/Old hero.png"));
 
 		Engine::Entity testSprite;
-		testSprite.addComponent(std::make_shared<Engine::StaticSpriteComponent>(testSprite, spriteRenderer, texture));
+		testSprite.addComponent(std::make_shared<Engine::StaticSpriteComponent>(testSprite, spriteRenderer.newSprite(), texture));
 
 		SDL_Rect rect;
 		rect.x = 0;
@@ -48,8 +48,6 @@ int main(int argc, char *argv[]) {
 		}
 
 		SDL_Delay(1000);
-
-
 
 	}
 	catch (Engine::Error& error)

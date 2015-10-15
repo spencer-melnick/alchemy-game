@@ -10,9 +10,8 @@ SetSpriteSourceMessage::SetSpriteSourceMessage(SDL_Rect s)
 	: source(s)
 {}
 
-StaticSpriteComponent::StaticSpriteComponent(Entity& owner, SpriteRenderer& renderer, Texture* texture)
-	: GraphicsComponent(owner, renderer), texture_(texture) {
-	sprite_ = createNewSprite();
+StaticSpriteComponent::StaticSpriteComponent(Entity& owner, SharedSprite sprite, Texture* texture)
+	: GraphicsComponent(owner), sprite_(sprite), texture_(texture) {
 	sprite_->setTexture(texture_->getTexture());
 
 	Vector2D dim = texture->getSize();

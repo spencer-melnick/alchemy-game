@@ -22,13 +22,13 @@ namespace Engine {
 
 	class StaticSpriteComponent : public GraphicsComponent {
 	public:
-		StaticSpriteComponent(Entity& owner, SpriteRenderer& renderer, Texture* texture);
+		StaticSpriteComponent(Entity& owner, SharedSprite sprite, Texture* texture);
 		void setTexture(Texture* texture);
 		virtual void receiveMessage(BaseMessage& message) override;
 
 	protected:
 		Texture* texture_;
-		Sprite* sprite_;
+		SharedSprite sprite_;
 	};
 
 }

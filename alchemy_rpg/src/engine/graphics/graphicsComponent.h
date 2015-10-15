@@ -16,14 +16,7 @@ namespace Engine
 
 	class GraphicsComponent: public Component<GraphicsComponent> {
 	public:
-		GraphicsComponent(Entity& owner, SpriteRenderer& renderer);
-		virtual ~GraphicsComponent();
-
-	protected:
-		SpriteRenderer& renderer_;
-		std::vector<Sprite*> ownedSprites_;
-
-		Sprite* createNewSprite();
+		GraphicsComponent(Entity& owner);
 	};
 }
 
