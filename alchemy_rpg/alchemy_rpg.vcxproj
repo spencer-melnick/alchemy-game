@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="src\engine\core\core.h" />
     <ClInclude Include="src\engine\core\error.h" />
     <ClInclude Include="src\engine\core\linkedResource.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="src\engine\file\manager.h" />
     <ClInclude Include="src\engine\file\resource.h" />
     <ClInclude Include="src\engine\file\texture.h" />
+    <ClInclude Include="src\engine\file\xmlLoader.h" />
     <ClInclude Include="src\engine\graphics\graphics.h" />
     <ClInclude Include="src\engine\graphics\graphicsComponent.h" />
     <ClInclude Include="src\engine\graphics\sprite.h" />
