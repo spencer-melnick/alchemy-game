@@ -16,7 +16,23 @@ namespace Engine
 		void deleteResources(Byte priority);
 
 		template <typename T>
-		T* getResource(std::string filename);
+		T* getResource(std::string filename) {
+			Resource* resource = getResource(filename);
+
+			if (resource == nullptr)
+				return nullptr;
+
+			T* typed;
+			try {
+				typed = dynamic_cast<T*>(resource);
+			}
+			catch (std::bad_cast& error) {
+				Log(filename + " was unable to be cast to requested type + \"" + error.what() + "\"", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
+				return nullptr;
+			}
+
+			return typed;
+		};
 
 
 		std::vector < std::pair<std::string, ResourceFactory*> > extensionAssociations;

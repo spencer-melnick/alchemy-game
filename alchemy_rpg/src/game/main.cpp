@@ -25,7 +25,11 @@ int main(int argc, char *argv[]) {
 		Engine::TextureFactory textureFactory(renderer);
 		Engine::SpriteRenderer spriteRenderer(renderer);
 
+		Engine::XmlFactory xmlFactory;
+
 		resources.extensionAssociations.push_back(std::make_pair(IMAGE_EXTENSIONS, &textureFactory));
+		resources.extensionAssociations.push_back(std::make_pair(".xml ", &xmlFactory));
+
 		resources.loadResource("rc/oga/Jason-Em/Old hero.png", 2);
 
 		Engine::Texture* texture = resources.getResource<Engine::Texture>("rc/oga/Jason-Em/Old hero.png");
@@ -40,6 +44,8 @@ int main(int argc, char *argv[]) {
 		rect.h = 128;
 
 		testSprite.dispatchMessage(Engine::SetSpriteSourceMessage(rect));
+
+		resources.loadResource("rc/xml/dummy.xml", 2);
 
 		if (texture != nullptr) {
 			SDL_RenderClear(renderer.getSdlRenderer());

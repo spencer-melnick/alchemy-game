@@ -12,7 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\tinyxml2\tinyxml2.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="src\engine\core\core.h" />
     <ClInclude Include="src\engine\core\error.h" />
     <ClInclude Include="src\engine\core\linkedResource.h" />
@@ -60,6 +59,7 @@
     <ClCompile Include="src\engine\file\manager.cpp" />
     <ClCompile Include="src\engine\file\resource.cpp" />
     <ClCompile Include="src\engine\file\texture.cpp" />
+    <ClCompile Include="src\engine\file\xmlLoader.cpp" />
     <ClCompile Include="src\engine\graphics\graphicsComponent.cpp" />
     <ClCompile Include="src\engine\graphics\sprite.cpp" />
     <ClCompile Include="src\engine\graphics\spriteRenderer.cpp" />

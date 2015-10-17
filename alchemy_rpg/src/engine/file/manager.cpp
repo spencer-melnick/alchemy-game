@@ -44,25 +44,6 @@ Resource* ResourceManager::getResource(std::string filename) {
 	return resource;
 }
 
-template <typename T>
-T* ResourceManager::getResource(std::string filename) {
-	Resource* resource = getResource(filename);
-
-	if (resource == nullptr)
-		return nullptr;
-
-	T* typed;
-	try {
-		typed = dynamic_cast<T*>(resource);
-	}
-	catch (std::bad_cast& error) {
-		Log(filename + " was unable to be cast to requested type + \"" + error.what() + "\"", LogLevel::LOG_WARNING, SystemName::SYSTEM_FILE);
-		return nullptr;
-	}
-
-	return typed;
-}
-
 Resource* ResourceManager::getResource(Hash id) {
 	auto i = resources_.find(id);
 	if (i != resources_.end())

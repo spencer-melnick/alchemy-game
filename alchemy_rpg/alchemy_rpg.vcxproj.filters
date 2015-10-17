@@ -117,11 +117,8 @@
     <ClInclude Include="src\engine\graphics\staticSprite.h">
       <Filter>src\engine\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Header.h">
-      <Filter>src\engine\file</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\file\xmlLoader.h">
-      <Filter>src\engine</Filter>
+      <Filter>src\engine\file</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +178,9 @@
     </ClCompile>
     <ClCompile Include="src\engine\graphics\staticSprite.cpp">
       <Filter>src\engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\file\xmlLoader.cpp">
+      <Filter>src\engine\file</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
